@@ -1,0 +1,21 @@
+buildscript {
+	repositories {
+		jcenter()
+		google()
+	}
+	dependencies {
+		classpath 'com.android.tools.build:gradle:3.5.0'
+	}
+}
+
+allprojects {
+	repositories {
+//		if (project.hasProperty('MAVEN_REPO')) {
+//			maven { url MAVEN_REPO }
+//		}
+		jcenter()
+		google()
+		maven { url "https://www.jitpack.io" }
+//		maven { url 'https://maven.ghostscript.com/' }
+	}
+}

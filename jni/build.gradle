@@ -1,0 +1,50 @@
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+
+group = 'com.artifex.mupdf'
+version = '1.18.0'
+
+buildscript {
+	repositories {
+		google()
+		jcenter()
+	}
+	dependencies {
+		classpath 'com.android.tools.build:gradle:3.5.0'
+	}
+}
+
+allprojects {
+	repositories {
+		google()
+		jcenter()
+	}
+}
+
+android {
+	compileSdkVersion 28
+
+	defaultConfig {
+		minSdkVersion 16
+		targetSdkVersion 28
+
+		externalNativeBuild.ndkBuild.arguments '-j4'
+
+		// Set ABI_FILTERS in your gradle.properties file
+		if (project.hasProperty('ABI_FILTERS')) {
+			ndk.abiFilters = []
+			ndk.abiFilters.addAll(ABI_FILTERS.split(',').collect{it as String})
+		}
+	}
+
+	sourceSets {
+		main {
+			manifest.srcFile 'AndroidManifest.xml'
+			java.srcDirs 'libmupdf/platform/java/src'
+		}
+	}
+
+	externalNativeBuild {
+		ndkBuild.path 'libmupdf/platform/java/Android.mk'
+	}
+}

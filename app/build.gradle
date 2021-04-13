@@ -1,0 +1,65 @@
+apply plugin: 'com.android.application'
+
+group = 'com.artifex.mupdf'
+version = '1.18.0'
+
+dependencies {
+	implementation 'androidx.appcompat:appcompat:1.1.+'
+	implementation project(':lib')
+
+//	if (file('../lib/build.gradle').isFile())
+//		api project(':lib')
+//	else
+//		api 'com.artifex.mupdf:viewer:1.18.0'
+}
+
+android {
+	compileSdkVersion 28
+	defaultConfig {
+		minSdkVersion 16
+		targetSdkVersion 28
+		versionName '1.18.0'
+		versionCode 90
+		ndk{
+//			moduleName"libNativeFormats-v4"       //生成的so文件名字，调用C程序的代码中会用到该名字
+			abiFilters 'armeabi-v7a' //, 'armeabi','x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+		}
+
+	}
+
+	sourceSets {
+		main {
+			jniLibs.srcDirs = ['src/main/jniLibs'] // 指定加载so的路径，如果不添加，将提示找不到library
+			jni.srcDirs = [] //
+		}
+	}
+
+//	splits {
+//		abi {
+//			enable true
+//			universalApk true
+//		}
+//	}
+//
+//	bundle {
+//		abi {
+//			enableSplit true
+//		}
+//	}
+
+//	if (project.hasProperty('release_storeFile')) {
+//		signingConfigs {
+//			release {
+//				storeFile file(release_storeFile)
+//				storePassword release_storePassword
+//				keyAlias release_keyAlias
+//				keyPassword release_keyPassword
+//			}
+//		}
+//		buildTypes {
+//			release {
+//				signingConfig signingConfigs.release
+//			}
+//		}
+//	}
+}
