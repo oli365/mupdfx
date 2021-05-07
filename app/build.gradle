@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 group = 'com.artifex.mupdf'
-version = '1.18.0'
+version = '1.18.1'
 
 dependencies {
 	implementation 'androidx.appcompat:appcompat:1.1.+'
@@ -18,7 +18,7 @@ android {
 	defaultConfig {
 		minSdkVersion 16
 		targetSdkVersion 28
-		versionName '1.18.0'
+		versionName '1.18.1'
 		versionCode 90
 		ndk{
 //			moduleName"libNativeFormats-v4"       //生成的so文件名字，调用C程序的代码中会用到该名字

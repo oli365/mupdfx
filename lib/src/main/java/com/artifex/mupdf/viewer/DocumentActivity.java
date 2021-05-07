@@ -69,6 +69,7 @@ public class DocumentActivity extends Activity
 	private SeekBar      mPageSlider;
 	private int          mPageSliderRes;
 	private TextView     mPageNumberView;
+	private ImageButton  mBack;
 	private ImageButton  mSearchButton;
 	private ImageButton  mOutlineButton;
 	private ViewAnimator mTopBarSwitcher;
@@ -696,6 +697,7 @@ public class DocumentActivity extends Activity
 		mSearchBack = (ImageButton)mButtonsView.findViewById(R.id.searchBack);
 		mSearchFwd = (ImageButton)mButtonsView.findViewById(R.id.searchForward);
 		mSearchClose = (ImageButton)mButtonsView.findViewById(R.id.searchClose);
+		mBack = mButtonsView.findViewById(R.id.backButton);
 		mSearchText = (EditText)mButtonsView.findViewById(R.id.searchText);
 		mLinkButton = (ImageButton)mButtonsView.findViewById(R.id.linkButton);
 		mLayoutButton = mButtonsView.findViewById(R.id.layoutButton);
@@ -703,6 +705,12 @@ public class DocumentActivity extends Activity
 		mPageNumberView.setVisibility(View.INVISIBLE);
 
 		mPageSlider.setVisibility(View.INVISIBLE);
+		mBack.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				finish();
+			}
+		});
 	}
 
 	private void showKeyboard() {
