@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 group = 'com.artifex.mupdf'
-version = '1.18.1'
+version = '1.18.0'
 
 dependencies {
 	implementation 'androidx.appcompat:appcompat:1.1.+'
@@ -18,8 +18,8 @@ android {
 	defaultConfig {
 		minSdkVersion 16
 		targetSdkVersion 28
-		versionName '1.18.1'
-		versionCode 90
+		versionName '1.18.0'
+		versionCode 91
 		ndk{
 //			moduleName"libNativeFormats-v4"       //生成的so文件名字，调用C程序的代码中会用到该名字
 			abiFilters 'armeabi-v7a','arm64-v8a'//, 'armeabi','x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
